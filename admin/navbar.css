@@ -1,0 +1,85 @@
+@import url('https://fonts.cdnfonts.com/css/ds-digital');
+
+.wrappers {
+  height: 40px;
+  width: 230px;
+  position: relative;
+  background:  #1355cf;
+  border-radius: 10px;
+  cursor: default;
+  font-family: 'DS-Digital', sans-serif; 
+}
+
+.dark .wrappers {
+    background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+    animation: animate 1.5s linear infinite;
+  }
+
+.wrappers .display,
+.wrappers span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrappers .display {
+  z-index: 999;
+  height: 90%;
+  width: 97.5%;
+  background: #eeeeee;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.dark .wrappers .display {
+    background: #1b1b1b;
+  }
+
+.display #time {
+  line-height: 40x;
+  color: #fff;
+  font-size: 27px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  background: linear-gradient( #000000, #0c0000);
+  font-family: 'DS-Digital', sans-serif;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate 1.5s linear infinite;
+}
+
+.dark .display #time {
+line-height: 40x;
+  color: #fff;
+  font-size: 27px;
+  font-weight: 200;
+  letter-spacing: 1px;
+background: linear-gradient( #14ffe9, #ffeb3b, #ff00e0);
+    font-family: 'DS-Digital', sans-serif;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate 1.5s linear infinite;
+  }
+
+@keyframes animate {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+
+.wrappers span {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  background: inherit;
+}
+
+.dark .wrappers span:first-child {
+  filter: blur(7px);
+}
+
+.dark .wrappers span:last-child {
+  filter: blur(20px);
+}
