@@ -91,7 +91,7 @@ if (!isset($_SESSION['user_email'])) {
           <div class="panel panel-primary">
             <div class="panel-heading" style="padding-bottom: 20px">
               <div class="judul">
-                Masukkan kriteria Penilaian disini!
+                Masukkan Variabel/Kriteria Penilaian disini!
                 <?php
                 // Mengambil data kriteria dari database
                 include "../config/koneksi.php";

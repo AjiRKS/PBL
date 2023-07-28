@@ -126,9 +126,9 @@ if (!isset($_SESSION['user_email'])) {
                                                 $skorEfisiensi = $data['skor_efisiensi'];
                                                 // Logika kondisional untuk menentukan tingkat efisiensi
                                                 if ($skorEfisiensi > 7.5) {
-                                                    $tingkatEfisiensi = 'Efisien';
+                                                    $tingkatEfisiensi = 'Sangat Efisien';
                                                 } elseif ($skorEfisiensi >= 5 && $skorEfisiensi <= 7.5) {
-                                                    $tingkatEfisiensi = 'Cukup Efisien';
+                                                    $tingkatEfisiensi = 'Efisien';
                                                 } elseif ($skorEfisiensi >= 2.5 && $skorEfisiensi < 5) {
                                                     $tingkatEfisiensi = 'Kurang Efisien';
                                                 } else {

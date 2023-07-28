@@ -8,9 +8,9 @@ function normalizeData($value, $min, $max)
         // Rentang nilai adalah nol, tetapkan nilai normalisasi menjadi 0 atau lakukan tindakan yang sesuai
         return 0;
     } else {
-        $newMin = 1; // Rentang nilai minimum baru
-        $newMax = 10; // Rentang nilai maksimum baru
-        return (($value - $min) / ($max - $min)) * ($newMax - $newMin) + $newMin;
+        $minRange = 1; // Rentang nilai minimum baru
+        $maxRange = 10; // Rentang nilai maksimum baru
+        return ($minRange+($value - $min)*($maxRange-$minRange) / ($max - $min));
     }
 }
 

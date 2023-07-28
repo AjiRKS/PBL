@@ -83,7 +83,7 @@ if (!isset($_SESSION['user_email'])) {
                       <label>Keterangan:</label>
                     </div>
                     <div class="col-lg-9">
-                      <textarea class="form-control" name="keterangan" required><?php echo $data['keterangan_alternatif']; ?></textarea>
+                      <textarea class="form-control" name="keterangan"><?php echo $data['keterangan_alternatif']; ?></textarea>
                     </div>
                   </div>
                   <div class="row form-group">

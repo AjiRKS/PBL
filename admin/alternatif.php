@@ -3,9 +3,9 @@ session_start(); // Memulai sesi
 
 // Memeriksa apakah pengguna telah login atau belum
 if (!isset($_SESSION['user_email'])) {
-    // Jika pengguna belum login, redirect ke halaman login
-    header('Location: ../index.html');
-    exit;
+  // Jika pengguna belum login, redirect ke halaman login
+  header('Location: ../index.html');
+  exit;
 }
 ?>
 
@@ -13,6 +13,7 @@ if (!isset($_SESSION['user_email'])) {
 <!DOCTYPE html>
 <!-- Coding by Aji Nur Prasetyo -->
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,7 +22,7 @@ if (!isset($_SESSION['user_email'])) {
   <title>SPK Metode DEA</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="boostrap.css" />
-  
+
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <style>
@@ -37,7 +38,7 @@ if (!isset($_SESSION['user_email'])) {
       width: 10%;
       min-width: 80px;
     }
-    
+
     /* Adjust column to wrap the content */
     #dataTables-example td:nth-child(2),
     #dataTables-example th:nth-child(2),
@@ -47,36 +48,37 @@ if (!isset($_SESSION['user_email'])) {
     }
 
     .panel-body {
-    background-color: #fff;
-    color: #000;
-}
+      background-color: #fff;
+      color: #000;
+    }
 
-.dataTable_wrapper {
-    background-color: #fff;
-    color: #000;
-}
+    .dataTable_wrapper {
+      background-color: #fff;
+      color: #000;
+    }
 
-#dataTables-example tbody td {
-    background-color: white !important;
-    color: black !important;
-}
+    #dataTables-example tbody td {
+      background-color: white !important;
+      color: black !important;
+    }
 
-.dark .panel-body {
-    background-color: #3f3f3f;
-    color: #333;
-}
+    .dark .panel-body {
+      background-color: #3f3f3f;
+      color: #333;
+    }
 
-.dark .dataTable_wrapper {
-    background-color: #3f3f3f;
-    color: #fff;
-}
+    .dark .dataTable_wrapper {
+      background-color: #3f3f3f;
+      color: #fff;
+    }
 
-.dark #dataTables-example tbody td {
-    background-color: #3f3f3f !important;
-    color: white !important;
-}
+    .dark #dataTables-example tbody td {
+      background-color: #3f3f3f !important;
+      color: white !important;
+    }
   </style>
 </head>
+
 <body>
   <!-- Include navbar -->
   <?php include 'navbar.php'; ?>
@@ -88,7 +90,7 @@ if (!isset($_SESSION['user_email'])) {
     <div id="page-wrapper">
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="page-header">Alternatif Penilaian</h1>
+          <h1 class="page-header">Unit Yang Akan Dinilai</h1>
         </div>
         <!-- /.col-lg-12 -->
       </div>
@@ -98,7 +100,7 @@ if (!isset($_SESSION['user_email'])) {
           <div class="panel panel-primary">
             <div class="panel-heading" style="padding-bottom: 20px">
               <div class="judul">
-                Masukkan subjek yang akan dinilai efisiensinya!
+                Masukkan unit yang akan dinilai efisiensinya!
                 <a href="alternatif_tambah.php" class="btn btn-sm btn-success" style="float: right;"><i class="fa fa-plus"></i> Tambah</a>
               </div>
             </div>
@@ -108,7 +110,7 @@ if (!isset($_SESSION['user_email'])) {
                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                   <thead>
                     <tr>
-                      <th style="text-align: center;">Nama Alternatif</th>
+                      <th style="text-align: center;">Nama Unit</th>
                       <th style="text-align: center;">Keterangan</th> <!-- Added column header -->
                       <th style="text-align: center;">Gambar</th>
                       <th style="text-align: center;">Aksi</th>
@@ -116,14 +118,26 @@ if (!isset($_SESSION['user_email'])) {
                   </thead>
                   <tbody>
                     <?php
-                      // Mengambil data alternatif dari database
-                      include "../config/koneksi.php";
-                      $query = mysqli_query($conn, "SELECT * FROM alternatif");
-                      while ($data = mysqli_fetch_array($query)) {
+                    // Mengambil data alternatif dari database
+                    include "../config/koneksi.php";
+                    $query = mysqli_query($conn, "SELECT * FROM alternatif");
+                    while ($data = mysqli_fetch_array($query)) {
                     ?>
                       <tr>
                         <td><?php echo $data['nama_alternatif']; ?></td>
-                        <td><?php echo $data['keterangan_alternatif']; ?></td>
+                        <td>
+                          <?php
+                          $words = str_word_count($data['keterangan_alternatif'], 1);
+                          $limitedText = implode(' ', array_slice($words, 0, 5));
+
+                          echo $limitedText;
+
+                          if (count($words) > 5) {
+                            echo '...'; 
+                          }
+                          ?>
+                        </td>
+
                         <td><img src="<?php echo $data['gambar_alternatif']; ?>" alt="Gambar" width="100px"></td>
                         <td>
                           <a class="btn btn-xs btn-info" href="alternatif_lihat.php?id=<?php echo $data['id_alternatif']; ?>">Lihat</a>
@@ -132,7 +146,7 @@ if (!isset($_SESSION['user_email'])) {
                         </td>
                       </tr>
                     <?php
-                      }  
+                    }
                     ?>
                   </tbody>
 
@@ -154,9 +168,10 @@ if (!isset($_SESSION['user_email'])) {
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
   <script src="script.js"></script>
   <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
       $('#dataTables-example').DataTable();
     });
   </script>
 </body>
+
 </html>

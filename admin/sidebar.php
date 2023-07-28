@@ -1,5 +1,6 @@
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-thin-straight/css/uicons-thin-straight.css'>
 
 <nav class="sidebar">
   <div class="menu_content">
@@ -20,7 +21,7 @@
           <span class="navlink_icon">
             <i class="fi fi-rr-users-alt"></i>
           </span>
-          <span class="navlink">Alternatif</span>
+          <span class="navlink">DMUs (prodi)</span>
         </a>
       </li>
       <li class="item">
@@ -28,7 +29,7 @@
           <span class="navlink_icon">
             <i class="fi fi-rr-square-star"></i>
           </span>
-          <span class="navlink">Kriteria</span>
+          <span class="navlink">Variabel</span>
         </a>
       </li>
       <li class="item">
@@ -51,7 +52,7 @@
       <li class="item">
         <a href="normalisasi_tampil.php" class="nav_link">
           <span class="navlink_icon">
-            <i class="bx bxs-magic-wand"></i>
+          <i class="fi fi-ts-ruler-combined"></i>
           </span>
           <span class="navlink">Normalisasi</span>
         </a>
@@ -61,7 +62,7 @@
       <li class="item">
         <a href="skorefisiensi_tampil.php" class="nav_link">
           <span class="navlink_icon">
-            <i class="bx bx-loader-circle"></i>
+            <i class='bx bxs-analyse'></i>
           </span>
           <span class="navlink">Efisiensi Relatif</span>
         </a>
@@ -74,7 +75,7 @@
           <span class="navlink_icon">
             <i class='bx bx-chat'></i>
           </span>
-          <span class="navlink">Chatt</span>
+          <span class="navlink">Costumer Service</span>
         </a>
       </li>
       <li class="item">
